@@ -51,6 +51,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Remove="Properties\PublishProfiles\OTS20180403064404 - Web Deploy.pubxml" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\DAL\OTS.DAL.csproj" />
   </ItemGroup>
 
