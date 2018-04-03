@@ -1,12 +1,12 @@
-﻿// =============================
-// Email: info@ebenmonney.com
-// www.ebenmonney.com/templates
-// =============================
+﻿
+
+
+
 
 using System;
 using System.Linq;
 
-namespace DAL.Models
+namespace OTS.DAL.Models
 {
     public class OrderDetail : AuditableEntity
     {

@@ -1,11 +1,5 @@
-﻿// =============================
-// Email: info@ebenmonney.com
-// www.ebenmonney.com/templates
-// =============================
-
-using DAL;
-using DAL.Core.Interfaces;
-using DAL.Models;
+﻿
+using OTS.DAL;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -15,9 +9,11 @@ using System.Linq;
 using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
-using DAL.Core;
+using OTS.DAL.Core;
+using OTS.DAL.Core.Interfaces;
+using OTS.DAL.Models;
 
-namespace DAL.Core
+namespace OTS.DAL.Core
 {
     public class AccountManager : IAccountManager
     {

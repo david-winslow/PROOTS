@@ -1,13 +1,13 @@
-﻿// =============================
-// Email: info@ebenmonney.com
-// www.ebenmonney.com/templates
-// =============================
+﻿
+
+
+
 
 using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace DAL.Models
+namespace OTS.DAL.Models
 {
     public class ProductCategory : AuditableEntity
     {

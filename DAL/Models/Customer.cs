@@ -1,16 +1,11 @@
-﻿// =============================
-// Email: info@ebenmonney.com
-// www.ebenmonney.com/templates
-// =============================
-
-using DAL.Core;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using OTS.DAL.Core;
 
-namespace DAL.Models
+namespace OTS.DAL.Models
 {
     public class Customer : AuditableEntity
     {

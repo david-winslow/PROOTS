@@ -1,16 +1,11 @@
-﻿// =============================
-// Email: info@ebenmonney.com
-// www.ebenmonney.com/templates
-// =============================
-
-using DAL.Repositories.Interfaces;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using OTS.DAL.Repositories.Interfaces;
 
-namespace DAL
+namespace OTS.DAL
 {
     public interface IUnitOfWork
     {

@@ -1,7 +1,7 @@
-﻿// =============================
-// Email: info@ebenmonney.com
-// www.ebenmonney.com/templates
-// =============================
+﻿
+
+
+
 
 using System;
 using System.Collections.Generic;
@@ -9,10 +9,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
-using DAL.Models;
-using DAL.Repositories.Interfaces;
+using OTS.DAL.Models;
+using OTS.DAL.Repositories.Interfaces;
 
-namespace DAL.Repositories
+namespace OTS.DAL.Repositories
 {
     public class CustomerRepository : Repository<Customer>, ICustomerRepository
     {

@@ -1,7 +1,7 @@
-﻿// =============================
-// Email: info@ebenmonney.com
-// www.ebenmonney.com/templates
-// =============================
+﻿
+
+
+
 
 using System;
 using System.Collections.Generic;
@@ -9,9 +9,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity;
-using DAL.Models.Interfaces;
+using OTS.DAL.Models.Interfaces;
 
-namespace DAL.Models
+namespace OTS.DAL.Models
 {
     public class ApplicationUser : IdentityUser, IAuditableEntity
     {

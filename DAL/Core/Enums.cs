@@ -1,11 +1,11 @@
-﻿// =============================
-// Email: info@ebenmonney.com
-// www.ebenmonney.com/templates
-// =============================
+﻿
+
+
+
 
 using System;
 
-namespace DAL.Core
+namespace OTS.DAL.Core
 {
     public enum Gender
     {

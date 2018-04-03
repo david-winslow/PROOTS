@@ -1,13 +1,13 @@
-﻿// =============================
-// Email: info@ebenmonney.com
-// www.ebenmonney.com/templates
-// =============================
+﻿
+
+
+
 
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace DAL.Models.Interfaces
+namespace OTS.DAL.Models.Interfaces
 {
     public interface IAuditableEntity
     {

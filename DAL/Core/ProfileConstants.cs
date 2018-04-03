@@ -1,7 +1,4 @@
-﻿// =============================
-// Email: info@ebenmonney.com
-// www.ebenmonney.com/templates
-// =============================
+﻿
 
 using System;
 using System.Collections.Generic;
@@ -9,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DAL.Core
+namespace OTS.DAL.Core
 {
     public static class ClaimConstants
     {
