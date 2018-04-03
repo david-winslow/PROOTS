@@ -12,9 +12,17 @@
     <BuildServerSideRenderer>false</BuildServerSideRenderer>
     <Description>ASPNET Core - Angular5 startup template for Quick Application Development</Description>
     <Copyright>Copyright © 2018 www.ot-services.co.za</Copyright>
-    <PackageProjectUrl>https://www.ebenmonney.com/OTS-pro</PackageProjectUrl>
+    <PackageProjectUrl>http://www.ot-services.co.za/OTS-pro</PackageProjectUrl>
     <Company>OT-Services</Company>
     <Version>1.2.0</Version>
+    <Platforms>AnyCPU;x64</Platforms>
+    <ApplicationIcon />
+    <OutputType>Library</OutputType>
+    <StartupObject />
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <PlatformTarget>AnyCPU</PlatformTarget>
   </PropertyGroup>
 
   <ItemGroup>

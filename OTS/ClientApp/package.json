@@ -6,9 +6,9 @@
     "author": {
         "name": "Ebenezer Monney",
         "email": "info@ebenmonney.com",
-        "url": "https://www.ebenmonney.com/about"
+        "url": "http://www.ot-services.co.za/about"
     },
-    "homepage": "https://www.ebenmonney.com/OTS-pro",
+    "homepage": "http://www.ot-services.co.za/OTS-pro",
     "scripts": {
         "ng": "ng",
         "start": "concurrently -k \"ng serve --extract-css\" \"npm run theme\"",

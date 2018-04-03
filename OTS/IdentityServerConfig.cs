@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using OTS.DAL.Core;
 using IdentityModel;
 using IdentityServer4;

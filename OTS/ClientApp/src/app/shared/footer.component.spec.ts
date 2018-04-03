@@ -29,7 +29,7 @@ describe('Footer',
                     .querySelector('.app-footer-link a');
                 const href = link.getAttribute('href');
                 const text = link.textContent;
-                expect(href).toContain('https://www.ebenmonney.com');
-                expect(text).toContain('www.ebenmonney.com');
+                expect(href).toContain('http://www.ot-services.co.za');
+                expect(text).toContain('www.ot-services.co.za');
             });
     });
