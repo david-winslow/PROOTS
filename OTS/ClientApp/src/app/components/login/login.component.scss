@@ -1,0 +1,16 @@
+@media (min-width: 768px) {
+    .login-container {
+        width: 700px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .login-container {
+        width: 730px;
+    }
+}
+
+mat-spinner {
+    display: inline-block;
+    margin-right: 16px;
+}

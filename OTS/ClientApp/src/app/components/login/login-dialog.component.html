@@ -1,0 +1,8 @@
+<h1 mat-dialog-title>{{'mainMenu.Login' | translate}}</h1>
+<div mat-dialog-content>
+    <app-login-control #loginControl [isModal]="true"></app-login-control>
+</div>
+<div mat-dialog-actions>
+    <button mat-button (click)="onCancel()" tabindex="2">Cancel</button>
+    <button mat-button [disabled]="false" (click)="loginControl.login();" tabindex="-1">Login</button>
+</div>
