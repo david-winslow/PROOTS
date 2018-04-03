@@ -39,8 +39,13 @@ namespace OTS
     // This method gets called by the runtime. Use this method to add services to the container.
     public void ConfigureServices(IServiceCollection services)
     {
+      var assemblyName = "ots";
+      var connectionString = Configuration["ConnectionStrings:DefaultConnection"];
       services.AddDbContext<ApplicationDbContext>(options =>
-        options.UseSqlServer(Configuration["ConnectionStrings:DefaultConnection"], b => b.MigrationsAssembly("OTS")));
+      {
+        
+        options.UseSqlServer(connectionString, b => b.MigrationsAssembly(assemblyName));
+      });
 
       // add identity
       services.AddIdentity<ApplicationUser, ApplicationRole>()
@@ -72,15 +77,20 @@ namespace OTS
         // This might be useful to get started, but needs to be replaced by some persistent key material for production scenarios.
         // See http://docs.identityserver.io/en/release/topics/crypto.html#refcrypto for more information.
         .AddDeveloperSigningCredential()
-        .AddInMemoryPersistedGrants()
-        // To configure IdentityServer to use EntityFramework (EF) as the storage mechanism for configuration data (rather than using the in-memory implementations),
-        // see https://identityserver4.readthedocs.io/en/release/quickstarts/8_entity_framework.html
-        .AddInMemoryIdentityResources(IdentityServerConfig.GetIdentityResources())
-        .AddInMemoryApiResources(IdentityServerConfig.GetApiResources())
-        .AddInMemoryClients(IdentityServerConfig.GetClients())
+        .AddConfigurationStore(options =>
+        { 
+          options.ConfigureDbContext = builder => builder.UseSqlServer(connectionString, sql => sql.MigrationsAssembly(assemblyName)); 
+        })
+        .AddOperationalStore(options =>
+        { 
+          options.ConfigureDbContext = builder => builder.UseSqlServer(connectionString, sql => sql.MigrationsAssembly(assemblyName)); 
+     
+          // this enables automatic token cleanup. this is optional. 
+          options.EnableTokenCleanup = true; 
+          options.TokenCleanupInterval = 30; 
+        })
         .AddAspNetIdentity<ApplicationUser>()
         .AddProfileService<ProfileService>();
-
 
       var applicationUrl = Configuration["ApplicationUrl"].TrimEnd('/');
 
@@ -184,7 +194,7 @@ namespace OTS
       services.AddSingleton<IAuthorizationHandler, AssignRolesAuthorizationHandler>();
 
       // DB Creation and Seeding
-      services.AddTransient<IDatabaseInitializer, DatabaseInitializer>();
+      services.AddTransient<IDatabaseInitializer, IdentityServerDbInitializer>();
     }
 
 
