@@ -1,15 +1,15 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { SharedModule } from '../shared/shared.module';
 
 import { ReportingRoutingModule } from './reporting-routing.module';
-import { NewComponent } from './new/new.component';
-import { NewReportComponent } from '../new-report/new-report.component';
+
+
 
 @NgModule({
   imports: [
-    CommonModule,
+    SharedModule,
     ReportingRoutingModule
   ],
-  declarations: [NewComponent, NewReportComponent]
+  declarations: []
 })
 export class ReportingModule { }
