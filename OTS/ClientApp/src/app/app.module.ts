@@ -37,8 +37,6 @@ import { LoginControlComponent } from "./components/login/login-control.componen
 import { LoginDialogComponent } from "./components/login/login-dialog.component";
 import { HomeComponent } from "./components/home/home.component";
 import { CustomersComponent } from "./components/customers/customers.component";
-import { ProductsComponent } from "./components/products/products.component";
-import { OrdersComponent } from "./components/orders/orders.component";
 import { AboutComponent } from "./components/about/about.component";
 import { NotFoundComponent } from "./components/not-found/not-found.component";
 
@@ -72,8 +70,6 @@ import { AddTaskDialogComponent } from './components/controls/add-task-dialog.co
         LoginComponent, LoginControlComponent, LoginDialogComponent,
         HomeComponent,
         CustomersComponent,
-        ProductsComponent,
-        OrdersComponent,
         AboutComponent,
         NotFoundComponent,
         NotificationsViewerComponent,

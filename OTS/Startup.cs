@@ -16,6 +16,7 @@ using Swashbuckle.AspNetCore.Swagger;
 using AppPermissions = OTS.DAL.Core.ApplicationPermissions;
 using IdentityServer4.AccessTokenValidation;
 using System.Collections.Generic;
+using Microsoft.IdentityModel.Logging;
 using OTS.Authorization;
 using OTS.Helpers;
 using OTS.ViewModels;
@@ -36,10 +37,9 @@ namespace OTS
     public IConfiguration Configuration { get; }
 
 
-    // This method gets called by the runtime. Use this method to add services to the container.
     public void ConfigureServices(IServiceCollection services)
     {
-      var assemblyName = "ots";
+      var assemblyName = "OTS";
       var connectionString = Configuration["ConnectionStrings:DefaultConnection"];
       services.AddDbContext<ApplicationDbContext>(options =>
       {
@@ -57,9 +57,9 @@ namespace OTS
       {
         // User settings
         options.User.RequireUniqueEmail = true;
+        options.Password.RequireDigit = false;
+        options.Password.RequiredLength = 1;
 
-        //    //// Password settings
-        //    //options.Password.RequireDigit = true;
         //    //options.Password.RequiredLength = 8;
         //    //options.Password.RequireNonAlphanumeric = false;
         //    //options.Password.RequireUppercase = true;
@@ -91,7 +91,7 @@ namespace OTS
         })
         .AddAspNetIdentity<ApplicationUser>()
         .AddProfileService<ProfileService>();
-
+         IdentityModelEventSource.ShowPII = true;
       var applicationUrl = Configuration["ApplicationUrl"].TrimEnd('/');
 
       services.AddAuthentication(IdentityServerAuthenticationDefaults.AuthenticationScheme)

@@ -263,3 +263,4 @@ __pycache__/
 *.licenseheader
 Thumbs.db
 tempkey.rsa
+OTS/node_modules/

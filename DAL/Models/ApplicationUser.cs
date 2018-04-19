@@ -38,10 +38,7 @@ namespace OTS.DAL.Models
     /// </summary>
     public virtual ICollection<IdentityUserClaim<string>> Claims { get; set; }
 
-    /// <summary>
-    /// Demo Navigation property for orders this user has processed
-    /// </summary>
-    public ICollection<Order> Orders { get; set; }
+    
 
     public string CreatedBy { get; set; }
     public string UpdatedBy { get; set; }

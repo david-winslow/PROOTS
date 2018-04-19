@@ -39,14 +39,6 @@ namespace OTS.ViewModels
       CreateMap<IdentityRoleClaim<string>, PermissionViewModel>()
         .ConvertUsing(s => Mapper.Map<PermissionViewModel>(ApplicationPermissions.GetPermissionByValue(s.ClaimValue)));
 
-      CreateMap<Customer, CustomerViewModel>()
-        .ReverseMap();
-
-      CreateMap<Product, ProductViewModel>()
-        .ReverseMap();
-
-      CreateMap<Order, OrderViewModel>()
-        .ReverseMap();
     }
   }
 }

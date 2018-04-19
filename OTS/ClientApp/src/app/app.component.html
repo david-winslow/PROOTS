@@ -39,9 +39,18 @@
                      [fixedInViewport]="mobileQuery.matches" fixedTopGap="56" [opened]="!mobileQuery.matches">
             <mat-nav-list *ngIf="isUserLoggedIn">
                 <a mat-list-item routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" routerLink=""><mat-icon>dashboard</mat-icon>{{'mainMenu.Home' | translate}}</a>
+                
                 <a mat-list-item routerLinkActive="active" *ngIf="canViewCustomers" routerLink="/customers"><mat-icon>contacts</mat-icon>{{'mainMenu.Customers' | translate}}</a>
-                <a mat-list-item routerLinkActive="active" *ngIf="canViewProducts" routerLink="/products"><mat-icon>local_shipping</mat-icon>{{'mainMenu.Products' | translate}}</a>
-                <a mat-list-item routerLinkActive="active" *ngIf="canViewOrders" routerLink="/orders"><mat-icon>shopping_cart</mat-icon>{{'mainMenu.Orders' | translate}}</a>
+                <mat-expansion-panel *ngIf="canViewCustomers" #admin [class.mat-elevation-z0]="!admin.expanded">
+                    <mat-expansion-panel-header>
+                        <mat-panel-title>
+                            <mat-icon>contacts</mat-icon>Customers
+                        </mat-panel-title>
+                    </mat-expansion-panel-header>
+                    <a mat-list-item routerLinkActive="active" *ngIf="canViewCustomers" routerLink="/customers/register"><mat-icon></mat-icon>New</a>
+                    
+                </mat-expansion-panel>
+                
                 <mat-expansion-panel *ngIf="canViewUsers || canViewRoles" #admin [class.mat-elevation-z0]="!admin.expanded">
                     <mat-expansion-panel-header>
                         <mat-panel-title>

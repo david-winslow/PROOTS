@@ -26,20 +26,10 @@ namespace OTS.Controllers
     }
 
 
-    // GET: api/values
-    [HttpGet]
-    public IActionResult Get()
-    {
-      var allCustomers = _unitOfWork.Customers.GetAllCustomersData();
-      return Ok(Mapper.Map<IEnumerable<CustomerViewModel>>(allCustomers));
-    }
+  
 
 
-    [HttpGet("throw")]
-    public IEnumerable<CustomerViewModel> Throw()
-    {
-      throw new InvalidOperationException("This is a test exception: " + DateTime.Now);
-    }
+    
 
 
     [HttpGet("email")]

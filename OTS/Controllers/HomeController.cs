@@ -18,12 +18,5 @@ namespace OTS.Controllers
       return View();
     }
 
-
-    // GET api/values
-    [Route("api/[controller]"), Authorize, HttpGet]
-    public IEnumerable<string> Get()
-    {
-      return new[] {"value1", "value2"};
-    }
   }
 }

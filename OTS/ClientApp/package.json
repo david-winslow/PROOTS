@@ -1,11 +1,10 @@
 {
-    "name": "OTS-pro",
+    "name": "proots",
     "version": "1.2.0",
-    "description":
-        "Angular 5 startup project template with complete login, user and role management. Plus other useful services for Quick Application Development",
+    "description": "ots",
     "author": {
-        "name": "Ebenezer Monney",
-        "email": "info@ebenmonney.com",
+        "name": "David Winslow",
+        "email": "david@winslow.co.za",
         "url": "http://www.ot-services.co.za/about"
     },
     "homepage": "http://www.ot-services.co.za/OTS-pro",

@@ -32,11 +32,8 @@ export interface LanguagePreference {
 export class UserPreferencesComponent {
     languages: LanguagePreference[] = [
         { name: 'English', locale: 'en', isDefault: true },
-        { name: 'French', locale: 'fr', isDefault: false },
-        { name: 'German', locale: 'de', isDefault: false },
-        { name: 'Portuguese', locale: 'pt', isDefault: false },
-        { name: 'Arabic', locale: 'ar', isDefault: false },
-        { name: 'Korean', locale: 'kd', isDefault: false }
+        { name: 'Danish', locale: 'dk', isDefault: false }
+      
     ]
 
     homePages: PageInfo[] = [
