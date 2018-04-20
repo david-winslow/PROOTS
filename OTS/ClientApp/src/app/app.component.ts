@@ -1,9 +1,4 @@
-
-
-
-
-import { Component, ChangeDetectorRef, ViewChild, ViewEncapsulation, OnInit, OnDestroy, ElementRef } from
-    "@angular/core";
+"@angular/core";
 import { MediaMatcher } from '@angular/cdk/layout';
 import { Router, NavigationStart } from '@angular/router';
 import { MatExpansionPanel, MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
@@ -20,6 +15,7 @@ import { ConfigurationService } from './services/configuration.service';
 import { Permission } from './models/permission.model';
 import { LoginDialogComponent } from "./components/login/login-dialog.component";
 import { AppDialogComponent } from './shared/app-dialog.component';
+import { ChangeDetectorRef, OnInit, Component, ViewChild } from '@angular/core';
 
 @Component({
     selector: "app-root",
@@ -33,7 +29,7 @@ export class AppComponent implements OnInit {
     private _mobileQueryListener: () => void;
     isAppLoaded: boolean;
     isUserLoggedIn: boolean;
-    isAdminExpanded: boolean = false;
+    isAdminExpanded = false;
     removePrebootScreen: boolean;
     newNotificationCount = 0;
     appTitle = "OTS Pro";
@@ -165,22 +161,24 @@ export class AppComponent implements OnInit {
                 error => {
                     this.alertService.logError(error);
 
-                    if (this.dataLoadingConsecutiveFailures++ < 20)
+                    if (this.dataLoadingConsecutiveFailures++ < 20) {
                         setTimeout(() => this.initNotificationsLoading(), 5000);
-                    else
+                    }
+                    else {
                         this.alertService.showStickyMessage("Load Error",
                             "Loading new notifications from the server failed!",
                             MessageSeverity.error);
+                    }
                 });
     }
 
     markNotificationsAsRead() {
-        let recentNotifications = this.notificationService.recentNotifications;
+        const recentNotifications = this.notificationService.recentNotifications;
 
         if (recentNotifications.length) {
             this.notificationService.readUnreadNotification(recentNotifications.map(n => n.id), true)
                 .subscribe(response => {
-                        for (let n of recentNotifications) {
+                        for (const n of recentNotifications) {
                             n.isRead = true;
                         }
 
@@ -201,7 +199,7 @@ export class AppComponent implements OnInit {
             "Your Session has expired. Please log in again",
             MessageSeverity.info);
 
-        let dialogRef = this.dialog.open(LoginDialogComponent, { minWidth: 600 });
+        const dialogRef = this.dialog.open(LoginDialogComponent, { minWidth: 600 });
 
         dialogRef.afterClosed().subscribe(result => {
             this.alertService.resetStickyMessage();
@@ -218,7 +216,7 @@ export class AppComponent implements OnInit {
 
     showToast(message: AlertMessage, isSticky: boolean) {
         if (message == null) {
-            for (let id of this.stickyToasties.slice(0)) {
+            for (const id of this.stickyToasties.slice(0)) {
                 this.toastyService.clear(id);
             }
 
@@ -235,7 +233,7 @@ export class AppComponent implements OnInit {
             toastOptions.onAdd = (toast: ToastData) => this.stickyToasties.push(toast.id);
 
             toastOptions.onRemove = (toast: ToastData) => {
-                let index = this.stickyToasties.indexOf(toast.id, 0);
+                const index = this.stickyToasties.indexOf(toast.id, 0);
 
                 if (index > -1) {
                     this.stickyToasties.splice(index, 1);
@@ -249,7 +247,7 @@ export class AppComponent implements OnInit {
         switch (message.severity) {
         case MessageSeverity.default:
             this.toastyService.default(toastOptions);
-            break
+            break;
         case MessageSeverity.info:
             this.toastyService.info(toastOptions);
             break;
@@ -258,7 +256,7 @@ export class AppComponent implements OnInit {
             break;
         case MessageSeverity.error:
             this.toastyService.error(toastOptions);
-            break
+            break;
         case MessageSeverity.warn:
             this.toastyService.warning(toastOptions);
             break;
@@ -280,17 +278,8 @@ export class AppComponent implements OnInit {
     get fullName(): string {
         return this.authService.currentUser ? this.authService.currentUser.fullName : "";
     }
-
-    get canViewCustomers() {
+    get canViewReports() {
         return this.accountService.userHasPermission(Permission.viewUsersPermission);
-    }
-
-    get canViewProducts() {
-        return this.accountService.userHasPermission(Permission.viewUsersPermission);
-    }
-
-    get canViewOrders() {
-        return true;
     }
 
     get canViewUsers() {

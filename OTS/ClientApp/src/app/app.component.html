@@ -39,8 +39,7 @@
                      [fixedInViewport]="mobileQuery.matches" fixedTopGap="56" [opened]="!mobileQuery.matches">
             <mat-nav-list *ngIf="isUserLoggedIn">
                 <a mat-list-item routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" routerLink=""><mat-icon>dashboard</mat-icon>{{'mainMenu.Home' | translate}}</a>
-            
-                
+                           
                <mat-expansion-panel *ngIf="canViewReports" #reports [class.mat-elevation-z0]="!reports.expanded">
                     <mat-expansion-panel-header>
                         <mat-panel-title>

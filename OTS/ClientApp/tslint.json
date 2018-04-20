@@ -77,13 +77,13 @@
         "no-var-keyword": true,
         "object-literal-sort-keys": false,
         "one-line": [
-            true,
+            false,
             "check-open-brace",
             "check-catch",
             "check-else",
             "check-whitespace"
         ],
-        "prefer-const": true,
+        "prefer-const": false,
         "quotemark": [
             false,
             "double"
@@ -135,7 +135,7 @@
         "use-host-property-decorator": true,
         "no-input-rename": true,
         "no-output-rename": true,
-        "use-life-cycle-interface": true,
+        "use-life-cycle-interface": false,
         "use-pipe-transform-interface": true,
         "component-class-suffix": true,
         "directive-class-suffix": true

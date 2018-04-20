@@ -5,6 +5,7 @@ import { MatExpansionPanel } from "@angular/material";
 import "rxjs/add/operator/switchMap";
 
 import { ClientDetailsComponent } from "./client-details.component";
+import { fadeInOut } from "../services/animations";
 
 @Component({
     selector: "app-report",
