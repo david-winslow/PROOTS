@@ -14,8 +14,7 @@ import { fadeInOut } from "../services/animations";
     animations: [fadeInOut]
 })
 export class ReportComponent {
-@ViewChild(ClientDetailsComponent)
-clientDetailsPanel: MatExpansionPanel;
+@ViewChild(ClientDetailsComponent) clientDetails: MatExpansionPanel;
 
   constructor(
     private router: Router,
