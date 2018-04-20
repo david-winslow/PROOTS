@@ -33,25 +33,23 @@
 
     </mat-toolbar>
 
-    <mat-sidenav-container class="app-sidenav-container"
+    <mat-sidenav-container class="app-sidenavc-container"
                            [style.marginTop.px]="mobileQuery.matches ? 56 : 0">
         <mat-sidenav #mainNav class="app-sidenav-nav mat-elevation-z6" [mode]="mobileQuery.matches ? 'over' : 'side'"
                      [fixedInViewport]="mobileQuery.matches" fixedTopGap="56" [opened]="!mobileQuery.matches">
             <mat-nav-list *ngIf="isUserLoggedIn">
                 <a mat-list-item routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" routerLink=""><mat-icon>dashboard</mat-icon>{{'mainMenu.Home' | translate}}</a>
+            
                 
-                <a mat-list-item routerLinkActive="active" *ngIf="canViewCustomers" routerLink="/customers"><mat-icon>contacts</mat-icon>{{'mainMenu.Customers' | translate}}</a>
-                <mat-expansion-panel *ngIf="canViewCustomers" #admin [class.mat-elevation-z0]="!admin.expanded">
+               <mat-expansion-panel *ngIf="canViewReports" #reports [class.mat-elevation-z0]="!reports.expanded">
                     <mat-expansion-panel-header>
                         <mat-panel-title>
-                            <mat-icon>contacts</mat-icon>Customers
+                            <mat-icon>report</mat-icon>Reports
                         </mat-panel-title>
                     </mat-expansion-panel-header>
-                    <a mat-list-item routerLinkActive="active" *ngIf="canViewCustomers" routerLink="/customers/register"><mat-icon></mat-icon>New</a>
-                    
+                    <a mat-list-item routerLinkActive="active" *ngIf="canViewReports"  routerLink="report"><mat-icon>start</mat-icon>Launch App</a>
                 </mat-expansion-panel>
-                
-                <mat-expansion-panel *ngIf="canViewUsers || canViewRoles" #admin [class.mat-elevation-z0]="!admin.expanded">
+               <mat-expansion-panel *ngIf="canViewUsers || canViewRoles" #admin [class.mat-elevation-z0]="!admin.expanded">
                     <mat-expansion-panel-header>
                         <mat-panel-title>
                             <mat-icon>security</mat-icon>Admin

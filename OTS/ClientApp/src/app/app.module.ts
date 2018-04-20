@@ -16,6 +16,7 @@ import { AppErrorHandler } from './app-error.handler';
 
 import { SharedModule } from './shared/shared.module'
 import { AdminModule } from './admin/admin.module';
+import { ReportingModule } from './reporting/reporting.module';
 import { SettingsModule } from './settings/settings.module';
 import { FooterModule } from './shared/footer.component';
 import { ThemePickerModule } from './shared/theme-picker.component';
@@ -53,6 +54,7 @@ import { AddTaskDialogComponent } from './components/controls/add-task-dialog.co
         ThemePickerModule,
         HttpClientModule,
         AdminModule,
+        ReportingModule,
         SettingsModule,
         AppRoutingModule,
         TranslateModule.forRoot({

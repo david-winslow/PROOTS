@@ -87,7 +87,6 @@ namespace OTS
      
           // this enables automatic token cleanup. this is optional. 
           options.EnableTokenCleanup = true; 
-          options.TokenCleanupInterval = 30; 
         })
         .AddAspNetIdentity<ApplicationUser>()
         .AddProfileService<ProfileService>();

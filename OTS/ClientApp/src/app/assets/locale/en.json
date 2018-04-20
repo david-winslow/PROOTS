@@ -30,7 +30,8 @@
         "About": "About",
         "Settings": "Settings",
         "Users": "User Management",
-        "Roles": "Role Management"
+        "Roles": "Role Management",
+        "Start" : "Report Start"
     },
     "home": {
         "NoWidgets1": "You have no widgets displayed. Goto",

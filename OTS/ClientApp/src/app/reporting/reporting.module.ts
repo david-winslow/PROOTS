@@ -1,15 +1,17 @@
-import { NgModule } from '@angular/core';
-import { SharedModule } from '../shared/shared.module';
+import { NgModule } from "@angular/core";
+import { SharedModule } from "../shared/shared.module";
 
-import { ReportingRoutingModule } from './reporting-routing.module';
+
+import { ReportComponent } from "./report.component";
+import { ClientDetailsComponent } from './client-details.component';
 
 
 
 @NgModule({
   imports: [
-    SharedModule,
-    ReportingRoutingModule
+    SharedModule
   ],
-  declarations: []
+  declarations:
+   [ReportComponent, ClientDetailsComponent]
 })
 export class ReportingModule { }

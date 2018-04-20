@@ -202,13 +202,10 @@ namespace OTS.DAL.Core
     }
 
 
-    public async Task<bool> TestCanDeleteUserAsync(string userId)
-    {
-      return true;
-    }
+        public async Task<bool> TestCanDeleteUserAsync(string userId) => await Task.Run(() => true);
 
 
-    public async Task<Tuple<bool, string[]>> DeleteUserAsync(string userId)
+        public async Task<Tuple<bool, string[]>> DeleteUserAsync(string userId)
     {
       var user = await _userManager.FindByIdAsync(userId);
 
