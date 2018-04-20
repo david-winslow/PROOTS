@@ -32,6 +32,8 @@ public beginEdit() {
 }
 public save() {return; }
 
+public cancel() {return; }
+
 private buildForm() {
   this.clientDetailsFormGroup = this.formBuilder.group({
       clientName: '',

@@ -16,7 +16,7 @@
                 <mat-action-row>
                     <button mat-raised-button *ngIf="!clientDetails.isEditMode" (click)="clientDetails.beginEdit()" color="primary">Edit</button>
                     <button mat-raised-button *ngIf="clientDetails.isEditMode" (click) ="clientDetails.save()" color="primary" style="margin-right: 1em;">Save</button>
-                    <button mat-raised-button *ngIf="clientDetails.isEditMode" color="warn">Cancel</button>
+                    <button mat-raised-button *ngIf="clientDetails.isEditMode" (click) ="clientDetails.cancel()" color="warn">Cancel</button>
                 </mat-action-row>
     
             </mat-expansion-panel>
