@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27130.2010
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OTS", "OTS\OTS.csproj", "{E446F185-F802-4312-97B2-57DEBE677059}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Web", "ots.web\Web.csproj", "{E446F185-F802-4312-97B2-57DEBE677059}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OTS.DAL", "DAL\OTS.DAL.csproj", "{ACB9291E-6FF8-47CD-B969-9D8E91640BEB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DAL", "ots.dal\DAL.csproj", "{ACB9291E-6FF8-47CD-B969-9D8E91640BEB}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{0BA23B25-EEB9-4C7D-891C-3943BBA688CB}"
 	ProjectSection(SolutionItems) = preProject
