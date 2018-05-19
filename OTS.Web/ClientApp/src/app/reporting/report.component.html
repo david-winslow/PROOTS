@@ -1,22 +1,37 @@
 <app-page-header title="Start" icon="start"></app-page-header>
 <div [@fadeInOut] class="page-content">
 
-        <mat-accordion class="example-headers-align">
-            <mat-expansion-panel #clientDetailsPanel hideToggle="true" (opened)="navigateToFragment('clientDetails')">
-                <mat-expansion-panel-header>
-                    <mat-panel-title>
-                       Client Details
-                    </mat-panel-title>
-                    <mat-panel-description>
-                        Client information
-                        <mat-icon>account_circle</mat-icon>
-                    </mat-panel-description>
-                </mat-expansion-panel-header>
-               <app-client-details>#clientDetails</app-client-details>
-                <mat-action-row>
-                    <button mat-raised-button *ngIf="!clientDetails.isEditMode" (click)="clientDetails.beginEdit()" color="primary">Edit</button>
-                    <button mat-raised-button *ngIf="clientDetails.isEditMode" (click) ="clientDetails.save()" color="primary" style="margin-right: 1em;">Save</button>
-                    <button mat-raised-button *ngIf="clientDetails.isEditMode" (click) ="clientDetails.cancel()" color="warn">Cancel</button>
-                </mat-action-row>
-    
-            </mat-expansion-panel>
+    <mat-accordion class="example-headers-align">
+        <mat-expansion-panel #reportDetailsPanel hideToggle="true" (opened)="navigateToFragment('reportDetails')">
+            <mat-expansion-panel-header>
+                <mat-panel-title>Report Details</mat-panel-title>
+                <mat-panel-description>
+                    <mat-icon *ngIf="isComplete('reportDetails')">done</mat-icon>
+                </mat-panel-description>
+            </mat-expansion-panel-header>
+            <app-report-details>#reportDetails</app-report-details>
+            <mat-action-row>
+                <button mat-raised-button *ngIf="!isEditMode('reportDetails')" (click)="beginEdit('reportDetails')" color="primary">Edit</button>
+                <button mat-raised-button *ngIf="isEditMode('reportDetails')" (click)="save('reportDetails')" color="primary" style="margin-right: 1em;">Save</button>
+                <button mat-raised-button *ngIf="isEditMode('reportDetails')" (click)="cancel('reportDetails')" color="warn">Cancel</button>
+            </mat-action-row>
+
+        </mat-expansion-panel>
+        <mat-expansion-panel #clientDetailsPanel hideToggle="true" (opened)="navigateToFragment('clientDetails')">
+            <mat-expansion-panel-header>
+                <mat-panel-title>Client Details</mat-panel-title>
+                <mat-panel-description>
+                    <mat-icon *ngIf="isComplete('clientDetails')">done</mat-icon>
+                </mat-panel-description>
+            </mat-expansion-panel-header>
+            <app-client-details>#clientDetails</app-client-details>
+            <mat-action-row>
+                <button mat-raised-button *ngIf="!isEditMode('clientDetails')" (click)="beginEdit('clientDetails')" color="primary">Edit</button>
+                <button mat-raised-button *ngIf="isEditMode('clientDetails')" (click)="save('clientDetails')" color="primary" style="margin-right: 1em;">Save</button>
+                <button mat-raised-button *ngIf="isEditMode('clientDetails')" (click)="cancel('clientDetails')" color="warn">Cancel</button>
+            </mat-action-row>
+
+
+        </mat-expansion-panel>
+    </mat-accordion>
+</div>

@@ -48,7 +48,7 @@ export class AppTranslationService {
             language = this.translate.defaultLang;
         }
 
-        if (language != this.translate.currentLang) {
+        if (language !== this.translate.currentLang) {
             setTimeout(() => {
                 this.translate.use(language);
                 this._languageChanged.next(language);
@@ -78,7 +78,7 @@ export class TranslateLanguageLoader implements TranslateLoader {
      * @returns {any}
      */
     public getTranslation(lang: string): any {
-        //Note Dynamic require(variable) will not work. Require is always at compile time
+        // Note Dynamic require(variable) will not work. Require is always at compile time
         switch (lang) {
         case "en":
             return Observable.of(require("../assets/locale/en.json"));

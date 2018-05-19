@@ -6,6 +6,7 @@ import "rxjs/add/operator/switchMap";
 
 import { ClientDetailsComponent } from "./client-details.component";
 import { fadeInOut } from "../services/animations";
+import { ReportDetailsComponent } from "./report-details.component";
 
 @Component({
     selector: "app-report",
@@ -14,17 +15,48 @@ import { fadeInOut } from "../services/animations";
     animations: [fadeInOut]
 })
 export class ReportComponent {
-@ViewChild(ClientDetailsComponent) clientDetails: MatExpansionPanel;
+    @ViewChild(ClientDetailsComponent)
+    private clientDetails: ClientDetailsComponent;
+    @ViewChild("clientDetailsPanel")
+    private clientDetailsPanel: MatExpansionPanel;
 
-  constructor(
-    private router: Router,
-    private route: ActivatedRoute,
-) {}
+    @ViewChild(ReportDetailsComponent)
+    private reportDetails: ReportDetailsComponent;
+    @ViewChild("reportDetailsPanel")
+    private reportDetailsPanel: MatExpansionPanel;
 
-  public navigateToFragment(fragment: string) {
-    if (fragment) {
-        this.router.navigateByUrl(`/report#${fragment}`);
+
+
+    constructor(private router: Router, private route: ActivatedRoute) {
+    }
+
+    public navigateToFragment(fragment: string) {
+        if (fragment) {
+            this.router.navigateByUrl(`/report#${fragment}`);
+        }
+    }
+    public save(panelName: string){
+        if (this[panelName].save())
+        {
+        this[panelName + "Panel"].close();
+        }
+    }
+
+    public cancel(panelName: string) {
+        this[panelName].cancel();
+        this[panelName].isComplete = false;
+        this[panelName + "Panel"].close();
+    }
+
+    public beginEdit(panelName: string) {
+        this[panelName].beginEdit();
+    }
+
+    public isEditMode(panelName: string): Boolean {
+        return  this[panelName].isEditMode;
+    }
+
+    public isComplete(panelName: string): Boolean{
+        return this[panelName].complete;
     }
 }
-}
-

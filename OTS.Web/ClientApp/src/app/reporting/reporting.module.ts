@@ -4,6 +4,7 @@ import { SharedModule } from "../shared/shared.module";
 
 import { ReportComponent } from "./report.component";
 import { ClientDetailsComponent } from './client-details.component';
+import { ReportDetailsComponent } from './report-details.component';
 
 
 
@@ -12,6 +13,6 @@ import { ClientDetailsComponent } from './client-details.component';
     SharedModule
   ],
   declarations:
-   [ReportComponent, ClientDetailsComponent]
+   [ReportComponent, ClientDetailsComponent, ReportDetailsComponent]
 })
 export class ReportingModule { }

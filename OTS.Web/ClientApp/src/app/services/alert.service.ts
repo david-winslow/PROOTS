@@ -4,7 +4,7 @@
 
 import { Injectable } from '@angular/core';
 import { HttpResponseBase } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable } from 'rxjs/Observable';
 import { Subject } from 'rxjs/Subject';
 
 import { AppTranslationService } from '../services/app-translation.service';
@@ -21,8 +21,8 @@ export class AlertService {
 
     constructor(private translationService: AppTranslationService) {}
 
-    showDialog(title: string, message: string)
-    showDialog(title: string, message: string, type: DialogType, okCallback: (val?: any) => any)
+    showDialog(title: string, message: string);
+    showDialog(title: string, message: string, type: DialogType, okCallback: (val?: any) => any);
     showDialog(title: string,
         message: string,
         type: DialogType,
@@ -30,7 +30,7 @@ export class AlertService {
         cancelCallback?: () => any,
         okLabel?: string,
         cancelLabel?: string,
-        defaultValue?: string)
+        defaultValue?: string);
     showDialog(title: string,
         message: string,
         type?: DialogType,
@@ -56,10 +56,10 @@ export class AlertService {
         });
     }
 
-    showMessage(summary: string)
-    showMessage(summary: string, detail: string, severity: MessageSeverity)
-    showMessage(summaryAndDetails: string[], summaryAndDetailsSeparator: string, severity: MessageSeverity)
-    showMessage(response: HttpResponseBase, ignoreValue_useNull: string, severity: MessageSeverity)
+    showMessage(summary: string);
+    showMessage(summary: string, detail: string, severity: MessageSeverity);
+    showMessage(summaryAndDetails: string[], summaryAndDetailsSeparator: string, severity: MessageSeverity);
+    showMessage(response: HttpResponseBase, ignoreValue_useNull: string, severity: MessageSeverity);
     showMessage(data: any, separatorOrDetail?: string, severity?: MessageSeverity) {
         if (!severity) {
             severity = MessageSeverity.default;
@@ -81,10 +81,10 @@ export class AlertService {
         }
     }
 
-    showStickyMessage(summary: string)
-    showStickyMessage(summary: string, detail: string, severity: MessageSeverity, error?: any)
-    showStickyMessage(summaryAndDetails: string[], summaryAndDetailsSeparator: string, severity: MessageSeverity)
-    showStickyMessage(response: HttpResponseBase, ignoreValue_useNull: string, severity: MessageSeverity)
+    showStickyMessage(summary: string);
+    showStickyMessage(summary: string, detail: string, severity: MessageSeverity, error?: any);
+    showStickyMessage(summaryAndDetails: string[], summaryAndDetailsSeparator: string, severity: MessageSeverity);
+    showStickyMessage(response: HttpResponseBase, ignoreValue_useNull: string, severity: MessageSeverity);
     showStickyMessage(data: string | string[] | HttpResponseBase,
         separatorOrDetail?: string,
         severity?: MessageSeverity,
@@ -139,9 +139,7 @@ export class AlertService {
 
     showValidationError() {
         this.resetStickyMessage();
-        this.showStickyMessage(this.translationService.getTranslation('form.ErrorCaption'),
-            this.translationService.getTranslation('form.ErrorMessage'),
-            MessageSeverity.error);
+        this.showMessage('Validation error', 'Please fill out information correctly', MessageSeverity.error);
     }
 
     private showMessageHelper(summary: string, detail: string, severity: MessageSeverity, isSticky: boolean) {
@@ -214,7 +212,7 @@ export class AlertService {
     }
 }
 
-//******************** Dialog ********************//
+// ******************** Dialog ********************//
 export class AlertDialog {
     constructor(
         public title: string,
@@ -234,9 +232,9 @@ export enum DialogType {
     confirm,
     prompt
 }
-//******************** End ********************//
+// ******************** End ********************//
 
-//******************** Growls ********************//
+// ******************** Growls ********************//
 export class AlertMessage {
     constructor(public severity: MessageSeverity, public summary: string, public detail: string) {}
 }
@@ -249,4 +247,4 @@ export enum MessageSeverity {
     warn,
     wait
 }
-//******************** End ********************//
+// ******************** End ********************//

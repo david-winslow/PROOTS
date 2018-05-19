@@ -47,7 +47,7 @@
         "no-arg": true,
         "no-bitwise": true,
         "no-console": [
-            true,
+            false,
             "debug",
             "info",
             "time",
@@ -107,7 +107,7 @@
                 "variable-declaration": "nospace"
             }
         ],
-        "unified-signatures": true,
+        "unified-signatures": false,
         "variable-name": false,
         "whitespace": [
             true,

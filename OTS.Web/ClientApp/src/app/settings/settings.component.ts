@@ -29,9 +29,9 @@ export class SettingsComponent implements OnInit, OnDestroy, AfterViewInit {
     fragmentSubscription: any;
 
     @ViewChild('profile')
-    profilePanel: MatExpansionPanel
+    profilePanel: MatExpansionPanel;
     @ViewChild('preferences')
-    preferencesPanel: MatExpansionPanel
+    preferencesPanel: MatExpansionPanel;
 
     @ViewChild(UserEditorComponent)
     userProfile: UserEditorComponent;
