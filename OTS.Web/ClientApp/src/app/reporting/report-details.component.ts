@@ -1,7 +1,16 @@
-import { Component } from "@angular/core";
-import { Section } from "./Section";
-import { AlertService } from "../services/alert.service";
-import { FormBuilder, Validators } from "@angular/forms";
+import {
+    Component
+} from "@angular/core";
+import {
+    Section
+} from "./Section";
+import {
+    AlertService
+} from "../services/alert.service";
+import {
+    FormBuilder,
+    Validators
+} from "@angular/forms";
 
 @Component({
     selector: "app-report-details",
@@ -15,7 +24,7 @@ export class ReportDetailsComponent extends Section {
         this.buildForm();
     }
 
-     buildForm() {
+    buildForm() {
         this.formGroup = this.formBuilder.group({
             therapist: ['', Validators.required],
             homeLanguage: ['', Validators.required]

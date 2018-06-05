@@ -38,7 +38,7 @@ export class ReportComponent {
     public save(panelName: string){
         if (this[panelName].save())
         {
-        this[panelName + "Panel"].close();
+            this[panelName + "Panel"].close();
         }
     }
 
