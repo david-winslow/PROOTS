@@ -6,7 +6,7 @@ import { Component, Input, ViewChild } from '@angular/core';
 import { SelectionModel } from '@angular/cdk/collections';
 import { NgForm, FormBuilder, FormGroup, Validators } from '@angular/forms';
 
-import { Subject } from 'rxjs/Subject';
+import { Subject } from 'rxjs';
 
 import { AlertService, MessageSeverity } from '../services/alert.service';
 import { AccountService } from "../services/account.service";

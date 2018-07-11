@@ -1,8 +1,7 @@
 import { Component, OnDestroy, ViewChild, Input, Output, OnChanges, EventEmitter } from '@angular/core';
 import { NgForm, FormBuilder, FormGroup, Validators, AbstractControl, FormControl } from '@angular/forms';
 
-import { Subject } from 'rxjs/Subject';
-import { Subscription } from 'rxjs/Subscription';
+import { Subject ,  Subscription } from 'rxjs';
 
 import { AccountService } from "../services/account.service";
 import { AlertService, MessageSeverity } from '../services/alert.service';

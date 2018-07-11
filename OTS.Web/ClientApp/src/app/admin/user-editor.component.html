@@ -59,10 +59,10 @@
                 <mat-label>{{'NewPassword'}}</mat-label>
                 <input matInput type="password" formControlName="newPassword" autocomplete="off"/>
                 <mat-error *ngIf="newPassword.hasError('required')">
-                    {{'NewPasswordRequired'}}
+                    {{'New Password Required'}}
                 </mat-error>
                 <mat-error *ngIf="!newPassword.hasError('required') && newPassword.hasError('pattern')">
-                    {{'NewPasswordRules'}}
+                    {{'The new password must contain at least: one uppercase letter, one lowercase letter, one digit, and any special character'}}
                 </mat-error>
             </mat-form-field>
 
@@ -70,11 +70,10 @@
                 <mat-label>{{'ConfirmPassword'}}</mat-label>
                 <input matInput type="password" formControlName="confirmPassword"/>
                 <mat-error *ngIf="confirmPassword.hasError('required')">
-                    {{'ConfirmationPasswordRequired'}}
+                    {{'Confirmation Password Required'}}
                 </mat-error>
                 <mat-error *ngIf="!confirmPassword.hasError('required') && confirmPassword.hasError('notEqual')">
-                    Test
-                    {{'PasswordMismatch'}}
+                    {{'Password Mismatch'}}
                 </mat-error>
             </mat-form-field>
 

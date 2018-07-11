@@ -1,12 +1,8 @@
-
-
-
-
+import { map } from 'rxjs/operators';
 import { Injectable } from '@angular/core';
 import { Router, NavigationExtras } from "@angular/router";
-import { Observable } from 'rxjs/Observable';
-import { Subject } from 'rxjs/Subject';
-import 'rxjs/add/operator/map';
+import { Observable ,  Subject } from 'rxjs';
+
 
 import { LocalStoreManager } from './local-store-manager.service';
 import { EndpointFactory } from './endpoint-factory.service';
@@ -102,7 +98,7 @@ export class AuthService {
 
     refreshLogin() {
         return this.endpointFactory.getRefreshLoginEndpoint<LoginResponse>()
-            .map(response => this.processLoginResponse(response, this.rememberMe));
+            .pipe(map(response => this.processLoginResponse(response, this.rememberMe)));
     }
 
     login(user: UserLogin) {
@@ -111,7 +107,7 @@ export class AuthService {
             this.logout();
 
         return this.endpointFactory.getLoginEndpoint<LoginResponse>(user.userName, user.password)
-            .map(response => this.processLoginResponse(response, user.rememberMe));
+            .pipe(map(response => this.processLoginResponse(response, user.rememberMe)));
     }
 
     private processLoginResponse(response: LoginResponse, rememberMe: boolean) {

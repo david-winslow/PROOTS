@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Subject } from 'rxjs/Subject';
+import { Subject } from 'rxjs';
 import { LocalStoreManager } from './local-store-manager.service';
 import { DBkeys } from './db-Keys';
 import { Utilities } from './utilities';
