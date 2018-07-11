@@ -7,8 +7,10 @@
     <IsPackable>false</IsPackable>
     <SpaRoot>ClientApp\</SpaRoot>
     <DefaultItemExcludes>$(DefaultItemExcludes);$(SpaRoot)node_modules\**</DefaultItemExcludes>
+
+    <!-- Set this to true if you enable server-side prerendering -->
     <BuildServerSideRenderer>false</BuildServerSideRenderer>
-    <Description></Description>
+    <Description>ASPNET Core - Angular5 startup template for Quick Application Development</Description>
     <Copyright>Copyright © 2018 www.ot-services.co.za</Copyright>
     <PackageProjectUrl>http://www.ot-services.co.za/OTS-pro</PackageProjectUrl>
     <Company>OT-Services</Company>
@@ -17,7 +19,7 @@
     <ApplicationIcon>wwwroot\favicon.ico</ApplicationIcon>
     <OutputType>Exe</OutputType>
     <StartupObject />
-    <AssemblyName>ots.web</AssemblyName>
+    <AssemblyName>OTS.Web</AssemblyName>
     <RootNamespace>OTS.Web</RootNamespace>
   </PropertyGroup>
 
@@ -48,6 +50,10 @@
     <!-- Don't publish the SPA source files, but do show them in the project files list -->
     <Content Remove="$(SpaRoot)**" />
     <None Include="$(SpaRoot)**" Exclude="$(SpaRoot)node_modules\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="Properties\PublishProfiles\OTS20180403064404 - Web Deploy.pubxml" />
   </ItemGroup>
 
   <ItemGroup>

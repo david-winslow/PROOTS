@@ -39,7 +39,7 @@ namespace OTS.Web
 
         public void ConfigureServices(IServiceCollection services)
         {
-            var assemblyName = "ots.web";
+            var assemblyName = "OTS.Web";
             var connectionString = Configuration["ConnectionStrings:DefaultConnection"];
             services.AddDbContext<ApplicationDbContext>(options =>
             {
