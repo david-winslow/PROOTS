@@ -1,0 +1,14 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        
+      {
+        "name": "Launch Chrome1",
+        "type": "chrome",
+        "request": "launch",
+        "url": "http://localhost:5051/",
+        "webRoot": "${workspaceRoot}/ClientApp/src/app"
+      }
+     
+    ]
+  }
