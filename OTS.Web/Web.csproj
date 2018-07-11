@@ -19,6 +19,8 @@
     <ApplicationIcon>wwwroot\favicon.ico</ApplicationIcon>
     <OutputType>Exe</OutputType>
     <StartupObject />
+    <AssemblyName>OTS.Web</AssemblyName>
+    <RootNamespace>OTS.Web</RootNamespace>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -55,7 +57,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\DAL\OTS.DAL.csproj" />
+    <ProjectReference Include="..\ots.dal\DAL.csproj" />
   </ItemGroup>
 
   <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">
