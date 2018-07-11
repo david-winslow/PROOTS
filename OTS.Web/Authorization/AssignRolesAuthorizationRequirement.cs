@@ -12,25 +12,22 @@ namespace OTS.Web.Authorization
   }
 
 
-  public class
-    AssignRolesAuthorizationHandler : AuthorizationHandler<AssignRolesAuthorizationRequirement,
-      Tuple<string[], string[]>>
+  public class AssignRolesAuthorizationHandler : AuthorizationHandler<AssignRolesAuthorizationRequirement,
+          (string[] newRoles, string[] currentRoles)>
   {
     protected override Task HandleRequirementAsync(AuthorizationHandlerContext context,
-      AssignRolesAuthorizationRequirement requirement, Tuple<string[], string[]> newAndCurrentRoles)
+      AssignRolesAuthorizationRequirement requirement, (string[] newRoles, string[] currentRoles) newAndCurrentRoles)
     {
-      if (!GetIsRolesChanged(newAndCurrentRoles.Item1, newAndCurrentRoles.Item2))
+      if (!GetIsRolesChanged(newAndCurrentRoles.newRoles, newAndCurrentRoles.currentRoles))
       {
         context.Succeed(requirement);
-      }
+      }   
       else if (context.User.HasClaim(ClaimConstants.Permission, ApplicationPermissions.AssignRoles))
       {
-        if (context.User.HasClaim(ClaimConstants.Permission, ApplicationPermissions.ViewRoles)
-        ) // If user has ViewRoles permission, then he can assign any roles
+        if (context.User.HasClaim(ClaimConstants.Permission, ApplicationPermissions.ViewRoles)) // If user has ViewRoles permission, then he can assign any roles
           context.Succeed(requirement);
 
-        else if (GetIsUserInAllAddedRoles(context.User, newAndCurrentRoles.Item1, newAndCurrentRoles.Item2)
-        ) // Else user can only assign roles they're part of
+        else if (GetIsUserInAllAddedRoles(context.User, newAndCurrentRoles)) // Else user can only assign roles they're part of
           context.Succeed(requirement);
       }
 
@@ -55,18 +52,18 @@ namespace OTS.Web.Authorization
     }
 
 
-    private bool GetIsUserInAllAddedRoles(ClaimsPrincipal contextUser, string[] newRoles, string[] currentRoles)
+    private bool GetIsUserInAllAddedRoles(ClaimsPrincipal contextUser, (string[] newRoles, string[] currentRoles) roles )
     {
-      if (newRoles == null)
-        newRoles = new string[] { };
+      if (roles.newRoles == null)
+        roles.newRoles = new string[] { };
 
-      if (currentRoles == null)
-        currentRoles = new string[] { };
+      if (roles.currentRoles == null)
+        roles.currentRoles = new string[] { };
 
 
-      var addedRoles = newRoles.Except(currentRoles);
+      var addedRoles = roles.newRoles.Except(roles.currentRoles);
 
-      return addedRoles.All(role => contextUser.IsInRole(role));
+      return addedRoles.All(contextUser.IsInRole);
     }
   }
 }

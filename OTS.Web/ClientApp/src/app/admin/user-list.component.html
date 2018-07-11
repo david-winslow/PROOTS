@@ -3,7 +3,7 @@
 
     <div class="search-box">
         <mat-form-field>
-            <input matInput (keyup)="applyFilter($event.target.value)" placeholder="{{'users.management.Search' | translate}}">
+            <input matInput (keyup)="applyFilter($event.target.value)" placeholder="{{'Search'}}">
         </mat-form-field>
     </div>
 
@@ -12,36 +12,36 @@
         <mat-table [dataSource]="dataSource" matSort>
 
             <ng-container matColumnDef="jobTitle">
-                <mat-header-cell *matHeaderCellDef mat-sort-header> {{'users.management.Title' | translate}} </mat-header-cell>
+                <mat-header-cell *matHeaderCellDef mat-sort-header> {{'Title'}} </mat-header-cell>
                 <mat-cell *matCellDef="let row"> {{row.jobTitle}} </mat-cell>
             </ng-container>
 
             <ng-container matColumnDef="userName">
-                <mat-header-cell *matHeaderCellDef mat-sort-header> {{'users.management.UserName' | translate}} </mat-header-cell>
+                <mat-header-cell *matHeaderCellDef mat-sort-header> {{'UserName'}} </mat-header-cell>
                 <mat-cell *matCellDef="let row"> {{row.userName}} </mat-cell>
             </ng-container>
 
             <ng-container matColumnDef="fullName">
-                <mat-header-cell *matHeaderCellDef mat-sort-header> {{'users.management.FullName' | translate}} </mat-header-cell>
+                <mat-header-cell *matHeaderCellDef mat-sort-header> {{'FullName'}} </mat-header-cell>
                 <mat-cell *matCellDef="let row"> {{row.fullName}} </mat-cell>
             </ng-container>
 
             <ng-container matColumnDef="email">
-                <mat-header-cell *matHeaderCellDef mat-sort-header> {{'users.management.Email' | translate}} </mat-header-cell>
+                <mat-header-cell *matHeaderCellDef mat-sort-header> {{'Email'}} </mat-header-cell>
                 <mat-cell *matCellDef="let row"> {{row.email}} </mat-cell>
             </ng-container>
 
             <ng-container *ngIf="canManageUsers" matColumnDef="actions">
                 <mat-header-cell *matHeaderCellDef fxFlex="140px">
-                    <button *ngIf="canAssignRoles" mat-button color="primary" matTooltip="{{'users.management.NewUser' | translate}}" (click)="editUser()">
-                        <mat-icon class="mat-button-icon">person_add</mat-icon>{{'users.management.NewUser' | translate}}
+                    <button *ngIf="canAssignRoles" mat-button color="primary" matTooltip="{{'NewUser'}}" (click)="editUser()">
+                        <mat-icon class="mat-button-icon">person_add</mat-icon>{{'NewUser'}}
                     </button>
                 </mat-header-cell>
                 <mat-cell *matCellDef="let user" fxFlex="140px">
-                    <button mat-icon-button matTooltip="{{'users.management.Edit' | translate}}" (click)="editUser(user)">
+                    <button mat-icon-button matTooltip="{{'Edit'}}" (click)="editUser(user)">
                         <mat-icon>edit</mat-icon>
                     </button>
-                    <button mat-icon-button matTooltip="{{'users.management.Delete' | translate}}" (click)="confirmDelete(user)">
+                    <button mat-icon-button matTooltip="{{'Delete'}}" (click)="confirmDelete(user)">
                         <mat-icon color="warn">delete</mat-icon>
                     </button>
                 </mat-cell>

@@ -2,13 +2,13 @@
     <div>
         <mat-card class="mat-elevation-z6">
             <mat-card-header>
-                <mat-card-title>{{'mainMenu.Login' | translate}}</mat-card-title>
+                <mat-card-title>{{'Login'}}</mat-card-title>
             </mat-card-header>
             <mat-card-content>
                 <app-login-control [isModal]="false"></app-login-control>
             </mat-card-content>
             <mat-card-actions>
-                <button mat-raised-button color="primary" [disabled]="loginControl.isLoading" (click)="loginControl.login()"><mat-spinner *ngIf="loginControl.isLoading" [diameter]="24"></mat-spinner>{{'mainMenu.Login' | translate | uppercase}}</button>
+                <button mat-raised-button color="primary" [disabled]="loginControl.isLoading" (click)="loginControl.login()"><mat-spinner *ngIf="loginControl.isLoading" [diameter]="24"></mat-spinner>{{'Login' | uppercase}}</button>
             </mat-card-actions>
         </mat-card>
     </div>

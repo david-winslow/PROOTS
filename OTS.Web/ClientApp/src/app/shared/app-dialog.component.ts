@@ -6,7 +6,6 @@ import { Component, ViewChild, Inject } from '@angular/core';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 
 import { AlertDialog, DialogType, MessageSeverity } from '../services/alert.service';
-import { AppTranslationService } from '../services/app-translation.service';
 
 @Component({
     selector: 'app-dialog',
@@ -46,7 +45,6 @@ export class AppDialogComponent {
 
     constructor(
         public dialogRef: MatDialogRef<AppDialogComponent>,
-        private translationService: AppTranslationService,
         @Inject(MAT_DIALOG_DATA) private data: AlertDialog
     ) {
     }

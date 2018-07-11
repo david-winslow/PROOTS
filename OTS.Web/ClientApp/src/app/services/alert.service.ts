@@ -7,7 +7,6 @@ import { HttpResponseBase } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 import { Subject } from 'rxjs/Subject';
 
-import { AppTranslationService } from '../services/app-translation.service';
 import { Utilities } from '../services/utilities';
 
 @Injectable()
@@ -19,7 +18,6 @@ export class AlertService {
     private _isLoading = false;
     private loadingMessageId: any;
 
-    constructor(private translationService: AppTranslationService) {}
 
     showDialog(title: string, message: string);
     showDialog(title: string, message: string, type: DialogType, okCallback: (val?: any) => any);

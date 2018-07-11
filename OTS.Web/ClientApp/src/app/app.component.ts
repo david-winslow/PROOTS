@@ -6,7 +6,6 @@ import { ToastyService, ToastyConfig, ToastOptions, ToastData } from 'ng2-toasty
 
 import { AlertService, AlertDialog, DialogType, AlertMessage, MessageSeverity } from './services/alert.service';
 import { NotificationService } from "./services/notification.service";
-import { AppTranslationService } from "./services/app-translation.service";
 import { AccountService } from './services/account.service';
 import { LocalStoreManager } from './services/local-store-manager.service';
 import { AppTitleService } from './services/app-title.service';
@@ -41,17 +40,7 @@ export class AppComponent implements OnInit {
     dataLoadingConsecutiveFailures = 0;
     notificationsLoadingSubscription: any;
 
-    get notificationsTitle() {
-
-        let gT = (key: string) => this.translationService.getTranslation(key);
-
-        if (this.newNotificationCount) {
-            return `${gT("app.Notifications")} (${this.newNotificationCount} ${gT("app.New")})`;
-        } else {
-            return gT("app.Notifications");
-        }
-    }
-
+   
     constructor(storageManager: LocalStoreManager,
         private toastyService: ToastyService,
         private toastyConfig: ToastyConfig,
@@ -60,7 +49,6 @@ export class AppComponent implements OnInit {
         private notificationService: NotificationService,
         private appTitleService: AppTitleService,
         private authService: AuthService,
-        private translationService: AppTranslationService,
         public configurations: ConfigurationService,
         public router: Router,
         public dialog: MatDialog,
@@ -72,8 +60,6 @@ export class AppComponent implements OnInit {
 
         storageManager.initialiseStorageSyncListener();
 
-        translationService.addLanguages(["en", "fr", "de", "pt", "ar", "ko"]);
-        translationService.setDefaultLanguage('en');
 
         this.toastyConfig.theme = 'material';
         this.toastyConfig.position = 'top-right';
@@ -242,7 +228,7 @@ export class AppComponent implements OnInit {
                 toast.onAdd = null;
                 toast.onRemove = null;
             };
-        }
+        } 
 
         switch (message.severity) {
         case MessageSeverity.default:
@@ -279,7 +265,7 @@ export class AppComponent implements OnInit {
         return this.authService.currentUser ? this.authService.currentUser.fullName : "";
     }
     get canViewReports() {
-        return this.accountService.userHasPermission(Permission.viewUsersPermission);
+        return this.accountService.userHasPermission(Permission.manageReportsPermission);
     }
 
     get canViewUsers() {

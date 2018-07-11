@@ -9,6 +9,7 @@ namespace OTS.DAL.Core
     public const string UsersPermissionGroupName = "User Permissions";
 
     public const string RolesPermissionGroupName = "Role Permissions";
+    public const string ReportPermissionGroupName = "Report Permissions";
     public static ReadOnlyCollection<ApplicationPermission> AllPermissions;
 
     public static ApplicationPermission ViewUsers = new ApplicationPermission("View Users", "users.view",
@@ -26,8 +27,11 @@ namespace OTS.DAL.Core
     public static ApplicationPermission AssignRoles = new ApplicationPermission("Assign Roles", "roles.assign",
       RolesPermissionGroupName, "Permission to assign roles to users");
 
+      public static ApplicationPermission ManageReports = new ApplicationPermission("Manage Reports", "reports.manage",
+          ReportPermissionGroupName, "Permission to manage reports");
 
-    static ApplicationPermissions()
+
+        static ApplicationPermissions()
     {
       var allPermissions = new List<ApplicationPermission>
       {
@@ -36,7 +40,9 @@ namespace OTS.DAL.Core
 
         ViewRoles,
         ManageRoles,
-        AssignRoles
+        AssignRoles,
+
+        ManageReports
       };
 
       AllPermissions = allPermissions.AsReadOnly();
@@ -44,12 +50,12 @@ namespace OTS.DAL.Core
 
     public static ApplicationPermission GetPermissionByName(string permissionName)
     {
-      return AllPermissions.Where(p => p.Name == permissionName).FirstOrDefault();
+      return AllPermissions.FirstOrDefault(p => p.Name == permissionName);
     }
 
     public static ApplicationPermission GetPermissionByValue(string permissionValue)
     {
-      return AllPermissions.Where(p => p.Value == permissionValue).FirstOrDefault();
+      return AllPermissions.FirstOrDefault(p => p.Value == permissionValue);
     }
 
     public static string[] GetAllPermissionValues()

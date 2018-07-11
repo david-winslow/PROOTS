@@ -10,7 +10,6 @@ import 'rxjs/add/operator/switchMap';
 
 import { UserEditorComponent } from '../admin/user-editor.component';
 import { UserPreferencesComponent } from './user-preferences.component';
-import { AppTranslationService } from "../services/app-translation.service";
 import { Permission } from '../models/permission.model';
 import { Role } from '../models/role.model';
 import { User } from '../models/user.model';
@@ -43,7 +42,6 @@ export class SettingsComponent implements OnInit, OnDestroy, AfterViewInit {
         private alertService: AlertService,
         private router: Router,
         private route: ActivatedRoute,
-        private translationService: AppTranslationService,
         private accountService: AccountService
     ) {
     }
