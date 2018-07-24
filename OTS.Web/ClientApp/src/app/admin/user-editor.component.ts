@@ -1,12 +1,10 @@
 import { Component, OnDestroy, ViewChild, Input, Output, OnChanges, EventEmitter } from '@angular/core';
 import { NgForm, FormBuilder, FormGroup, Validators, AbstractControl, FormControl } from '@angular/forms';
 
-import { Subject } from 'rxjs/Subject';
-import { Subscription } from 'rxjs/Subscription';
+import { Subject ,  Subscription } from 'rxjs';
 
 import { AccountService } from "../services/account.service";
 import { AlertService, MessageSeverity } from '../services/alert.service';
-import { AppTranslationService } from '../services/app-translation.service';
 import { Utilities } from '../services/utilities';
 import { User } from '../models/user.model';
 import { UserEdit } from '../models/user-edit.model';
@@ -89,7 +87,6 @@ export class UserEditorComponent implements OnChanges, OnDestroy {
 
     constructor(
         private alertService: AlertService,
-        private translationService: AppTranslationService,
         private accountService: AccountService,
         private formBuilder: FormBuilder
     ) {

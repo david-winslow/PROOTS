@@ -7,7 +7,6 @@ import { MatPaginator, MatSort, MatTableDataSource, MatSnackBar, MatDialog } fro
 
 import { fadeInOut } from '../services/animations';
 import { AlertService, DialogType, MessageSeverity } from '../services/alert.service';
-import { AppTranslationService } from "../services/app-translation.service";
 import { AccountService } from "../services/account.service";
 import { Utilities } from "../services/utilities";
 import { User } from '../models/user.model';
@@ -35,7 +34,6 @@ export class UserListComponent implements OnInit, AfterViewInit {
 
     constructor(
         private alertService: AlertService,
-        private translationService: AppTranslationService,
         private accountService: AccountService,
         private snackBar: MatSnackBar,
         private dialog: MatDialog) {

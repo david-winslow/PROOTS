@@ -1,9 +1,7 @@
 import { Component, OnInit, AfterViewInit, OnDestroy, ViewChild } from "@angular/core";
 import { Router, ActivatedRoute } from "@angular/router";
 import { MatExpansionPanel } from "@angular/material";
-
 import "rxjs/add/operator/switchMap";
-
 import { ClientDetailsComponent } from "./client-details.component";
 import { fadeInOut } from "../services/animations";
 import { ReportDetailsComponent } from "./report-details.component";

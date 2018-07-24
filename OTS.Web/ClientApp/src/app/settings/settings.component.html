@@ -6,10 +6,10 @@
         <mat-expansion-panel #profile hideToggle="true" (opened)="navigateToFragment('profile')">
             <mat-expansion-panel-header>
                 <mat-panel-title>
-                    {{'settings.tab.Profile' | translate}}
+                    {{'Profile'}}
                 </mat-panel-title>
                 <mat-panel-description>
-                    {{'settings.description.UserProfile' | translate}}
+                    {{'UserProfile'}}
                     <mat-icon>account_circle</mat-icon>
                 </mat-panel-description>
             </mat-expansion-panel-header>
@@ -27,10 +27,10 @@
         <mat-expansion-panel #preferences hideToggle="true" (opened)="navigateToFragment('preferences')">
             <mat-expansion-panel-header>
                 <mat-panel-title>
-                    {{'settings.tab.Preferences' | translate}}
+                    {{'Preferences'}}
                 </mat-panel-title>
                 <mat-panel-description>
-                    {{'settings.description.UserPreferences' | translate}}
+                    {{'UserPreferences'}}
                     <mat-icon>tune</mat-icon>
                 </mat-panel-description>
             </mat-expansion-panel-header>
@@ -39,19 +39,19 @@
 
             <mat-action-row>
                 <button mat-button (click)="userPreferences.reset()"
-                        matTooltip="{{'preferences.ResetPreferencesHint' | translate}}"
+                        matTooltip="{{'ResetPreferences'}}"
                         color="warn" style="margin-right: 1em;">
-                    {{'commands.Reset' | translate}}
+                    {{'Reset'}}
                 </button>
                 <button mat-raised-button (click)="userPreferences.save()"
-                        matTooltip="{{'preferences.SavePreferencesHint' | translate}}"
+                        matTooltip="{{'SavePreferences'}}"
                         color="primary" style="margin-right: 1em;">
-                    {{'commands.Save' | translate}}
+                    {{'Save'}}
                 </button>
                 <button mat-raised-button (click)="userPreferences.reload()"
-                        matTooltip="{{'preferences.ReloadPreferencesHint' | translate}}"
+                        matTooltip="{{'ReloadPreferences'}}"
                         color="accent">
-                    {{'commands.Reload' | translate}}
+                    {{'Reload'}}
                 </button>
             </mat-action-row>
 

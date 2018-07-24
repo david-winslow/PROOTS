@@ -3,7 +3,6 @@ import { MatSnackBar } from '@angular/material';
 
 import { AlertService, MessageSeverity } from '../services/alert.service';
 import { ConfigurationService } from '../services/configuration.service';
-import { AppTranslationService } from "../services/app-translation.service";
 import { AccountService } from '../services/account.service';
 import { Utilities } from '../services/utilities';
 
@@ -27,8 +26,7 @@ export interface LanguagePreference {
 })
 export class UserPreferencesComponent {
     languages: LanguagePreference[] = [
-        { name: 'English', locale: 'en', isDefault: true },
-        { name: 'Danish', locale: 'dk', isDefault: false }
+        { name: 'English', locale: 'en', isDefault: true }
       
     ]
 
@@ -40,7 +38,6 @@ export class UserPreferencesComponent {
 
     constructor(
         private alertService: AlertService,
-        private translationService: AppTranslationService,
         private accountService: AccountService,
         private snackBar: MatSnackBar,
         public configurations: ConfigurationService

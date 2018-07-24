@@ -1,12 +1,6 @@
-
-
-
-
 import { Injectable } from '@angular/core';
 import { HttpResponse } from '@angular/common/http';
-import { Observable } from 'rxjs/Observable';
-import 'rxjs/add/observable/of';
-import 'rxjs/add/operator/map';
+import { Observable, of } from 'rxjs';
 
 @Injectable()
 export class NotificationEndpoint {
@@ -48,7 +42,7 @@ export class NotificationEndpoint {
             response = this.createResponse<T>(null, 404);
         }
 
-        return Observable.of(response.body);
+        return of(response.body);
     }
 
     getNotificationsEndpoint<T>(page: number, pageSize: number): Observable<T> {
@@ -56,7 +50,7 @@ export class NotificationEndpoint {
         let notifications = this.demoNotifications;
         let response = this.createResponse<T>(this.demoNotifications, 200);
 
-        return Observable.of(response.body);
+        return of(response.body);
     }
 
     getUnreadNotificationsEndpoint<T>(userId?: string): Observable<T> {
@@ -64,7 +58,7 @@ export class NotificationEndpoint {
         let unreadNotifications = this.demoNotifications.filter(val => !val.isRead);
         let response = this.createResponse<T>(unreadNotifications, 200);
 
-        return Observable.of(response.body);
+        return of(response.body);
     }
 
     getNewNotificationsEndpoint<T>(lastNotificationDate?: Date): Observable<T> {
@@ -72,7 +66,7 @@ export class NotificationEndpoint {
         let unreadNotifications = this.demoNotifications;
         let response = this.createResponse<T>(unreadNotifications, 200);
 
-        return Observable.of(response.body);
+        return of(response.body);
     }
 
     getPinUnpinNotificationEndpoint<T>(notificationId: number, isPinned?: boolean,): Observable<T> {
@@ -93,7 +87,7 @@ export class NotificationEndpoint {
         }
 
 
-        return Observable.of(response.body);
+        return of(response.body);
     }
 
     getReadUnreadNotificationEndpoint<T>(notificationIds: number[], isRead: boolean,): Observable<T> {
@@ -107,7 +101,7 @@ export class NotificationEndpoint {
         }
 
         let response = this.createResponse<T>(null, 204);
-        return Observable.of(response.body);
+        return of(response.body);
     }
 
     getDeleteNotificationEndpoint<T>(notificationId: number): Observable<T> {
@@ -122,7 +116,7 @@ export class NotificationEndpoint {
             response = this.createResponse<T>(null, 404);
         }
 
-        return Observable.of(response.body);
+        return of(response.body);
     }
 
     private createResponse<T>(body, status: number) {

@@ -6,7 +6,6 @@ import { Component, OnInit, OnDestroy, TemplateRef, ViewChild, Input } from '@an
 import { MatPaginator, MatSort, MatTableDataSource, MatSnackBar, MatDialog } from '@angular/material';
 
 import { AlertService, DialogType, MessageSeverity } from '../../services/alert.service';
-import { AppTranslationService } from "../../services/app-translation.service";
 import { NotificationService } from "../../services/notification.service";
 import { AccountService } from "../../services/account.service";
 import { Permission } from '../../models/permission.model';
@@ -34,7 +33,6 @@ export class NotificationsViewerComponent implements OnInit, OnDestroy {
 
     constructor(
         private alertService: AlertService,
-        private translationService: AppTranslationService,
         private accountService: AccountService,
         private notificationService: NotificationService,
         private snackBar: MatSnackBar

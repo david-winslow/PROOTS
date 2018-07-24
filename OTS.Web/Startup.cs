@@ -108,20 +108,13 @@ namespace OTS.Web
 
             services.AddAuthorization(options =>
             {
-                options.AddPolicy(Policies.ViewAllUsersPolicy,
-                    policy => policy.RequireClaim(ClaimConstants.Permission, AppPermissions.ViewUsers));
-                options.AddPolicy(Policies.ManageAllUsersPolicy,
-                    policy => policy.RequireClaim(ClaimConstants.Permission, AppPermissions.ManageUsers));
-
-                options.AddPolicy(Policies.ViewAllRolesPolicy,
-                    policy => policy.RequireClaim(ClaimConstants.Permission, AppPermissions.ViewRoles));
-                options.AddPolicy(Policies.ViewRoleByRoleNamePolicy,
-                    policy => policy.Requirements.Add(new ViewRoleAuthorizationRequirement()));
-                options.AddPolicy(Policies.ManageAllRolesPolicy,
-                    policy => policy.RequireClaim(ClaimConstants.Permission, AppPermissions.ManageRoles));
-
-                options.AddPolicy(Policies.AssignAllowedRolesPolicy,
-                    policy => policy.Requirements.Add(new AssignRolesAuthorizationRequirement()));
+                options.AddPolicy(Policies.ViewAllUsersPolicy,policy => policy.RequireClaim(ClaimConstants.Permission, AppPermissions.ViewUsers));
+                options.AddPolicy(Policies.ManageAllUsersPolicy,policy => policy.RequireClaim(ClaimConstants.Permission, AppPermissions.ManageUsers));
+                options.AddPolicy(Policies.ViewAllRolesPolicy,policy => policy.RequireClaim(ClaimConstants.Permission, AppPermissions.ViewRoles));
+                options.AddPolicy(Policies.ViewRoleByRoleNamePolicy,policy => policy.Requirements.Add(new ViewRoleAuthorizationRequirement()));
+                options.AddPolicy(Policies.ManageAllRolesPolicy,policy => policy.RequireClaim(ClaimConstants.Permission, AppPermissions.ManageRoles));
+                options.AddPolicy(Policies.AssignAllowedRolesPolicy,policy => policy.Requirements.Add(new AssignRolesAuthorizationRequirement()));
+                options.AddPolicy(Policies.ManageAllReportsPolicy,policy => policy.RequireClaim(ClaimConstants.Permission,AppPermissions.ManageReports));
             });
 
 

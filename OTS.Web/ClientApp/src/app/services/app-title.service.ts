@@ -4,12 +4,13 @@
 
 import { Injectable } from '@angular/core';
 import { Router, NavigationEnd, PRIMARY_OUTLET } from '@angular/router';
-import { Subscription } from 'rxjs/Subscription';
+import { Subscription, Observable } from 'rxjs';
 import { Title } from '@angular/platform-browser';
-import 'rxjs/add/operator/map';
-import 'rxjs/add/operator/mergeMap';
-import 'rxjs/add/operator/filter';
+
+
+
 import { Utilities } from './utilities';
+import { filter, map, flatMap } from 'rxjs/operators';
 
 @Injectable()
 export class AppTitleService {
@@ -18,18 +19,17 @@ export class AppTitleService {
 
     constructor(private titleService: Title, private router: Router) {
         this.sub = this.router.events
-            .filter(event => event instanceof NavigationEnd)
-            .map(_ => this.router.routerState.root)
-            .map(route => {
-                while (route.firstChild)
-                    route = route.firstChild;
+            .pipe(filter(event => event instanceof NavigationEnd),
+                map(_ => this.router.routerState.root),
+                map(route => {
+                    while (route.firstChild)
+                        route = route.firstChild;
 
-                return route;
-            })
-            .flatMap(route => route.data)
-            .subscribe(data => {
+                    return route;
+                }),
+                flatMap(route => route.data))
+                .subscribe(data => {
                 let title = data['title'];
-
                 if (title) {
                     let fragment = this.router.url.split('#')[1]
 
@@ -45,6 +45,6 @@ export class AppTitleService {
                 if (title)
                     this.titleService.setTitle(title);
             });
-    }
+        }
 
 }

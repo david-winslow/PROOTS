@@ -8,7 +8,6 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import { TranslateModule } from "@ngx-translate/core";
 
 import { OTSProMaterialModule } from "../modules/material.module";
 
@@ -24,14 +23,12 @@ import { GroupByPipe } from '../pipes/group-by.pipe';
         FormsModule, ReactiveFormsModule,
         BrowserModule, BrowserAnimationsModule,
         OTSProMaterialModule,
-        TranslateModule
     ],
     exports: [
         FlexLayoutModule,
         FormsModule, ReactiveFormsModule,
         BrowserModule, BrowserAnimationsModule,
         OTSProMaterialModule,
-        TranslateModule,
         PageHeaderComponent,
         GroupByPipe,
         UserEditorComponent,

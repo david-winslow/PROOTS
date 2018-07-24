@@ -1,5 +1,5 @@
-<h1 *ngIf="canManageRoles" mat-dialog-title>{{roleName ? ('roles.management.EditRole' | translate:roleName) : ('roles.management.NewRole' | translate)}}</h1>
-<h1 *ngIf="!canManageRoles" mat-dialog-title>{{'roles.management.RoleDetails' | translate:roleName}}</h1>
+<h1 *ngIf="canManageRoles" mat-dialog-title>{{roleName ? ('EditRole') : ('NewRole')}}</h1>
+<h1 *ngIf="!canManageRoles" mat-dialog-title>{{'RoleDetails'}}</h1>
 <div mat-dialog-content>
     <role-editor #roleEditor [role]="data.role" [allPermissions]="data.allPermissions"></role-editor>
 </div>
